@@ -25,7 +25,7 @@ Request Body:
 {
   "firstName": "Anee",
   "lastName": "Ali",
-  "email": "john@example.com",
+  "email": "anee@example.com",
   "username": "Anee",
   "password": "password123",
   "mobile": "1234567890",
