@@ -14,9 +14,9 @@ EcommerceSite-MERN/
 │   ├── models/                  # Mongoose schemas
 │   ├── routes/                  # API endpoints
 │   ├── uploads/                 # File storage
-│   ├── package.json            # Backend dependencies
-│   ├── server.js               # Main server file
-│   └── .env.example            # Environment variables template
+│   ├── package.json             # Backend dependencies
+│   ├── server.js                # Main server file
+│   └── .env.example             # Environment variables template
 │
 └── frontend/
     ├── public/
@@ -248,10 +248,10 @@ EMAIL_PASSWORD=your_app_password
 curl -X POST http://localhost:5000/api/auth/customer-signup \
   -H "Content-Type: application/json" \
   -d '{
-    "firstName": "John",
-    "lastName": "Doe",
-    "email": "john@example.com",
-    "username": "johndoe",
+    "firstName": "Anee",
+    "lastName": "Ali",
+    "email": "anee@example.com",
+    "username": "Anee",
     "password": "password123",
     "mobile": "1234567890",
     "address": "123 Main St"
