@@ -1,0 +1,78 @@
+.orders-page {
+  padding: 20px 0;
+}
+
+.orders-page h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #333;
+}
+
+.orders-table {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.orders-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-table th {
+  background-color: #f8f9fa;
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.orders-table td {
+  padding: 15px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.orders-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+@media (max-width: 768px) {
+  .orders-table table,
+  .orders-table thead,
+  .orders-table tbody,
+  .orders-table th,
+  .orders-table td,
+  .orders-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .orders-table thead {
+    display: none;
+  }
+
+  .orders-table tr {
+    margin-bottom: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+  }
+
+  .orders-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #f1f1f1;
+  }
+
+  .orders-table td::before {
+    font-weight: 600;
+    color: #666;
+  }
+
+  .orders-table td:nth-child(1)::before { content: "Order ID: "; }
+  .orders-table td:nth-child(2)::before { content: "Product: "; }
+  .orders-table td:nth-child(3)::before { content: "Date: "; }
+  .orders-table td:nth-child(4)::before { content: "Status: "; }
+}
