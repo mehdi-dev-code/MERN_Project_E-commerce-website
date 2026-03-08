@@ -23,10 +23,10 @@ Authorization: Bearer <JWT_TOKEN>
 Request Body:
 ```json
 {
-  "firstName": "John",
-  "lastName": "Doe",
+  "firstName": "Anee",
+  "lastName": "Ali",
   "email": "john@example.com",
-  "username": "johndoe",
+  "username": "Anee",
   "password": "password123",
   "mobile": "1234567890",
   "address": "123 Main Street"
@@ -40,10 +40,10 @@ Response (201):
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
   "user": {
     "_id": "user_id",
-    "firstName": "John",
-    "lastName": "Doe",
+    "firstName": "Anee",
+    "lastName": "Ali",
     "email": "john@example.com",
-    "username": "johndoe",
+    "username": "Anee",
     "isAdmin": false
   },
   "customer": {
@@ -63,7 +63,7 @@ Response (201):
 Request Body:
 ```json
 {
-  "username": "johndoe",
+  "username": "Anee",
   "password": "password123"
 }
 ```
@@ -128,10 +128,10 @@ Response (200):
   "success": true,
   "user": {
     "_id": "user_id",
-    "firstName": "John",
-    "lastName": "Doe",
-    "email": "john@example.com",
-    "username": "johndoe",
+    "firstName": "Anee",
+    "lastName": "Ali",
+    "email": "anee@example.com",
+    "username": "Ali",
     "isAdmin": false
   }
 }
@@ -372,9 +372,9 @@ Response (200):
       "_id": "customer_id",
       "user": {
         "_id": "user_id",
-        "firstName": "John",
-        "lastName": "Doe",
-        "email": "john@example.com"
+        "firstName": "Anee",
+        "lastName": "Ali",
+        "email": "anee@example.com"
       },
       "address": "123 Main Street",
       "mobile": "1234567890",
@@ -410,8 +410,8 @@ Response (200):
 
 Form Data:
 ```
-firstName: "John"
-lastName: "Doe"
+firstName: "Anee"
+lastName: "Ali"
 address: "123 Main Street"
 mobile: "1234567890"
 profilePic: (file upload - optional)
@@ -452,7 +452,7 @@ Response (200):
   "feedback": [
     {
       "_id": "feedback_id",
-      "name": "John Doe",
+      "name": "Anee Ali",
       "feedback": "Great product!",
       "date": "2024-01-16T14:30:00Z"
     }
@@ -468,7 +468,7 @@ Response (200):
 Request Body:
 ```json
 {
-  "name": "John Doe",
+  "name": "Anee Ali",
   "feedback": "Great product! Very satisfied with my purchase."
 }
 ```
@@ -479,7 +479,7 @@ Response (201):
   "success": true,
   "feedback": {
     "_id": "feedback_id",
-    "name": "John Doe",
+    "name": "Anee Ali",
     "feedback": "Great product! Very satisfied with my purchase.",
     "date": "2024-01-16T14:30:00Z"
   }
@@ -563,10 +563,10 @@ Response (200):
 curl -X POST http://localhost:5000/api/auth/customer-signup \
   -H "Content-Type: application/json" \
   -d '{
-    "firstName": "John",
-    "lastName": "Doe",
-    "email": "john@example.com",
-    "username": "johndoe",
+    "firstName": "Anee",
+    "lastName": "Ali",
+    "email": "anee@example.com",
+    "username": "Anee",
     "password": "password123",
     "mobile": "1234567890",
     "address": "123 Main Street"
@@ -597,5 +597,5 @@ Planned webhook events:
 
 ---
 
-**Last Updated**: January 2024  
+**Last Updated**: January 2026  
 **API Version**: 1.0
