@@ -312,8 +312,6 @@ MIT License - feel free to use this project for commercial or personal purposes.
 
 Developed by **Mehdi Ali**
 
-For more projects, visit: [CodeAstro.com](https://codeastro.com)
-
 ## Support
 
 For issues, questions, or suggestions, please open an issue in the repository.
