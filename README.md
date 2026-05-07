@@ -1,4 +1,4 @@
-# E-Commerce MERN Stack
+# MERN Stack Project E-Commerce-Website 
 
 This is an e-commerce project to a modern **MERN Stack (MongoDB, Express, React, Node.js)** with JWT-based authentication.
 
