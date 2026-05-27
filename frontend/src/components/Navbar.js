@@ -4,7 +4,6 @@ import '../styles/navbar.css';
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState(null);
   const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
@@ -12,10 +11,8 @@ const Navbar = () => {
     const userData = localStorage.getItem('user');
     if (token && userData) {
       setIsLoggedIn(true);
-      setUser(JSON.parse(userData));
     }
     
-    // Get cart count from localStorage
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
     setCartCount(cart.length);
   }, []);
@@ -24,7 +21,6 @@ const Navbar = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     setIsLoggedIn(false);
-    setUser(null);
     window.location.href = '/';
   };
 

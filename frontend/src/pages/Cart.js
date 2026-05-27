@@ -1,24 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import '../styles/cart.css';
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const [total, setTotal] = useState(0);
 
-  useEffect(() => {
-    loadCart();
-  }, []);
-
-  const loadCart = () => {
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    setCartItems(cart);
-    calculateTotal(cart);
-  };
-
   const calculateTotal = (items) => {
     const totalPrice = items.reduce((sum, item) => sum + item.price, 0);
     setTotal(totalPrice);
   };
+
+  // ✅ FIX — wrap in useCallback so it's safe to add to useEffect deps
+  const loadCart = useCallback(() => {
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    setCartItems(cart);
+    calculateTotal(cart);
+  }, []);
+
+  useEffect(() => {
+    loadCart();
+  }, [loadCart]);
 
   const removeFromCart = (index) => {
     const updatedCart = cartItems.filter((_, i) => i !== index);
@@ -32,7 +33,6 @@ const Cart = () => {
       alert('Your cart is empty!');
       return;
     }
-    // Redirect to checkout page or payment gateway
     alert('Proceeding to checkout...');
   };
 

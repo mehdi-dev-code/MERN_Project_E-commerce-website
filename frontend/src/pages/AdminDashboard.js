@@ -35,7 +35,6 @@ const AdminDashboard = () => {
 
   const handleInputChange = (e) => {
     const { name, value, files } = e.target;
-    
     if (name === 'productImage') {
       setFormData({
         ...formData,
@@ -65,7 +64,8 @@ const AdminDashboard = () => {
         data.append('productImage', formData.productImage);
       }
 
-      const response = await api.post('/products', data, {
+      // ✅ FIX 1 — removed unused 'response' variable
+      await api.post('/products', data, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
@@ -173,9 +173,10 @@ const AdminDashboard = () => {
           <div className="products-grid">
             {products.map((product) => (
               <div key={product._id} className="product-card">
+                {/* ✅ FIX 2 — Cloudinary returns full URL directly */}
                 {product.productImage && (
                   <img
-                    src={`http://localhost:5000/${product.productImage}`}
+                    src={product.productImage}
                     alt={product.name}
                     className="product-image"
                   />

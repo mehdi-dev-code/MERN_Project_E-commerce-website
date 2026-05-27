@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { productAPI } from '../services/authService';
 import '../styles/home.css';
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
-  const [cartCount, setCartCount] = useState(0);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetchProducts();
-    updateCartCount();
   }, []);
 
   const fetchProducts = async () => {
@@ -25,16 +21,10 @@ const HomePage = () => {
     }
   };
 
-  const updateCartCount = () => {
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    setCartCount(cart.length);
-  };
-
   const handleAddToCart = (product) => {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
     cart.push(product);
     localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartCount();
     alert('Product added to cart!');
   };
 
