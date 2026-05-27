@@ -3,49 +3,60 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./config/database');
 
-// Load environment variables
 dotenv.config();
-
-// Connect to database
 connectDB();
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// ✅ FIX 1 — Proper CORS config (replace app.use(cors()))
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://shopwave-frontend.vercel.app', // update after frontend deploy
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files for uploads
-// app.use('/uploads', express.static('uploads'));
-
-// Import routes
+// Routes
 const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/products');
 const orderRoutes = require('./routes/orders');
 const customerRoutes = require('./routes/customers');
 const feedbackRoutes = require('./routes/feedback');
 
-// Use routes
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/customers', customerRoutes);
 app.use('/api/feedback', feedbackRoutes);
 
-// Basic route
 app.get('/', (req, res) => {
   res.json({ message: 'Welcome to E-commerce API' });
 });
 
-// Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ success: false, message: err.message });
 });
 
-// Start server
+// ✅ FIX 2 — Only listen in local dev, not on Vercel
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+// ✅ FIX 3 — Export app for Vercel serverless
+module.exports = app;
