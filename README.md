@@ -2,7 +2,7 @@
 
 This is an e-commerce project to a modern **MERN Stack (MongoDB, Express, React, Node.js)** with JWT-based authentication.
 
-🔴 **Live Demo:** mern-project-e-commerce-website-fw7.vercel.app
+🔴 **Live Demo:** shopwave-frontend-jade.vercel.app
 
 ## Project Structure
 
